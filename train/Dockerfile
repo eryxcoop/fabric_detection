@@ -1,5 +1,8 @@
 FROM gcr.io/deeplearning-platform-release/pytorch-gpu
 
+ENV BUCKET_ROOT = "/gcs/covers_image_dataset/"
+#ENV BUCKET_ROOT="/"
+
 WORKDIR /
 
 RUN pip install ultralytics
@@ -7,7 +10,6 @@ RUN pip install opencv-python
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 
 COPY covers_prototype_train.py /covers_prototype_train.py
-#COPY credentials.json /credentials.json
 
 ENTRYPOINT ["python", "covers_prototype_train.py"]
 
