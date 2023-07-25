@@ -2,6 +2,7 @@ from ultralytics import YOLO
 from datetime import datetime
 import shutil
 import torch
+
 BUCKET_ROOT = "/gcs/covers_image_dataset"
 
 if torch.cuda.is_available():
@@ -9,12 +10,11 @@ if torch.cuda.is_available():
 
 model = YOLO("yolov8n-cls.pt")
 
-dataset_path = BUCKET_ROOT + "/"+"images"
+dataset_path = BUCKET_ROOT + "/" + "images"
 
 number_of_epochs = 100
 
 model.train(data=dataset_path, epochs=number_of_epochs)
-
 
 source = "runs"
 
