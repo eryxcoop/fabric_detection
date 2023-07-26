@@ -1,7 +1,7 @@
 #FROM gcr.io/deeplearning-platform-release/pytorch-gpu
 FROM us-docker.pkg.dev/vertex-ai/training/pytorch-gpu.1-13.py310:latest
 
-ENV BUCKET_ROOT = "/gcs/covers_image_dataset/"
+ENV BUCKET_ROOT=/gcs/covers_image_dataset
 
 WORKDIR /
 
